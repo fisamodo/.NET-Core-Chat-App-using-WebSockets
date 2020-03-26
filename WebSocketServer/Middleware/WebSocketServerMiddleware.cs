@@ -11,10 +11,11 @@ namespace WebSocketServer.Middleware
     public class WebSocketServerMiddleware
     {
         private readonly RequestDelegate _next;
-
-        public WebSocketServerMiddleware(RequestDelegate next)
+        private readonly WebSocketServerConnectionManager _manager;
+        public WebSocketServerMiddleware(RequestDelegate next, WebSocketServerConnectionManager manager)
         {
             _next =  next;
+            _manager = manager;
         }
 
          public async Task InvokeAsync(HttpContext context)
@@ -24,6 +25,7 @@ namespace WebSocketServer.Middleware
                     WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync(); //async method, may take time, accepts requests
                     Console.WriteLine("WebSocket Connected"); 
 
+                    string ConnID = _manager.AddSocket(webSocket);
                     await ReceiveMessage(webSocket, async(result, Buffer) => //message receiver
                     {
                         if(result.MessageType == WebSocketMessageType.Text) //chekcs if types are correct
