@@ -26,6 +26,7 @@ namespace WebSocketServer
 
             app.Use(async (context, next) => //middleware, part of pipeline request
              {
+                WriteRequestParam(context);
                 if(context.WebSockets.IsWebSocketRequest) //checks if it's a websocket, if so we create websocket object with await context.web.....
                 {
                     WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync(); //async method, may take time, accepts requests
@@ -44,6 +45,19 @@ namespace WebSocketServer
             });
 
         }
-        public void WriteRequest
+        public void WriteRequestParam(HttpContext context)
+        {
+            Console.WriteLine("Request Method: "+ context.Request.Method);
+            Console.WriteLine("Request Protocol: "+ context.Request.Protocol);
+
+            if(context.Request.Headers !=null)
+            {
+                foreach(var h in context.Request.Headers)
+                {
+                    Console.WriteLine("--> " + h.Key + ":" + h.Value);
+                }
+            }
+
+        }
     }
 }
