@@ -15,7 +15,7 @@ namespace WebSocketServer
 
     public class Startup
     {
-        /
+        
         public void ConfigureServices(IServiceCollection services)
         {
         }
@@ -24,7 +24,8 @@ namespace WebSocketServer
         {
             app.UseWebSockets();
 
-            app.Use(async (context, next) => {
+            app.Use(async (context, next) =>
+             {
                 if(context.WebSockets.IsWebSocketRequest) //checks if it's a websocket, if so we create websocket object with await context.web.....
                 {
                     WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync(); //async method, may take time
@@ -34,7 +35,7 @@ namespace WebSocketServer
                 {
                     await next();
                 }
-            }
+            });
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\WebSocketServer\\WebSocketServer.csproj": {}
+    "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\websocketserver\\WebSocketServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\WebSocketServer\\WebSocketServer.csproj": {
+    "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\websocketserver\\WebSocketServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\WebSocketServer\\WebSocketServer.csproj",
+        "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\websocketserver\\WebSocketServer.csproj",
         "projectName": "WebSocketServer",
-        "projectPath": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\WebSocketServer\\WebSocketServer.csproj",
+        "projectPath": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\websocketserver\\WebSocketServer.csproj",
         "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\WebSocketServer\\obj\\",
+        "outputPath": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\websocketserver\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
