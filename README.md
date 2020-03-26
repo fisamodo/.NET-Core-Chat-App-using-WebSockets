@@ -15,3 +15,4 @@ and more
 Point of this Chat app was to teach myself basics of internet communication such as
 using Pipeline, Request Delegates, WebSockets, Asynchronus Programming, Client&Server communication, Threading and Middleware Build
 and more.
+![](https://github.com/fisamodo/.NET-Core-Chat-App-using-WebSockets/blob/master/Pictures/1.png)
