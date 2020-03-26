@@ -25,10 +25,7 @@ namespace WebSocketServer
         {
             app.UseWebSockets(); //middleware, part of pipeline request
 
-            app.Use(async (context, next) => //middleware, part of pipeline request, 2nd request delegate
-            {
-               
-            });
+            
 
             app.Run(async context =>{ //3rd request delegate
                 Console.WriteLine("Hello from the 3rd request delegate."); // runs after 2nd delegate when i go to http://localhost5000
