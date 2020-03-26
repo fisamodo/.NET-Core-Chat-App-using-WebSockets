@@ -12,6 +12,6 @@ Tools i used for server app:
 -LINQ (almost none)...
 and more
 
-Point of this Chat app was to teach myself basics of internet communication.
-Using Middleware, async methods and more i was able to understand more about terms like pipeline, Request Delegates, 
-WebSockets, Asynchronus Programming, Client&Server communication, Threading and Middleware Build
+Point of this Chat app was to teach myself basics of internet communication such as
+using Pipeline, Request Delegates, WebSockets, Asynchronus Programming, Client&Server communication, Threading and Middleware Build
+and more.
