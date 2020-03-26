@@ -97,9 +97,9 @@
         var data = sendMessage.value;
         socket.send(data);
         commsLog.innerHTML += '<tr>' +
-                '<td>Server</td>' +
-                '<td>Client</td>' +
-                '<td>' + htmlEscape(event.data) + '</td></tr>';
+            '<td class="commslog-client">Client</td>' +
+            '<td class="commslog-server">Server</td>' +
+            '<td class="commslog-data">' + htmlEscape(data) + '</td></tr>';
     };
 
     function htmlEscape(str){ // zamjeni stringove sa dobrom html ekvivalentom
@@ -133,7 +133,7 @@
             switch (socket.readyState) {
                 case WebSocket.CLOSED:
                     stateLabel.innerHTML = "Closed";
-                    connID.innerHTML = "ConnID: N/a";
+                    connID.innerHTML = "ConnID: N/a"
                     disable();
                     connectionUrl.disabled = false;
                     connectButton.disabled = false;
