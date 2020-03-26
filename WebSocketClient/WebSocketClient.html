@@ -95,6 +95,7 @@
         if(!socket || socket.readyState !== WebSocket.OPEN){
             alert("Socket not connected");
         }
+        
         var data = constructJSON();
         socket.send(data);
         commsLog.innerHTML += '<tr>' +
