@@ -10,11 +10,14 @@ Tools i used for server app:
 -NET Core
 -DependencyInjection
 -LINQ (almost none)...
+-JSON
 and more
 
 Point of this Chat app was to teach myself basics of internet communication such as
 using Pipeline, Request Delegates, WebSockets, Asynchronus Programming, Client&Server communication, Threading and Middleware Build
 and more.
+
+
 
 Demonstration:
 Step 1: Prep.
