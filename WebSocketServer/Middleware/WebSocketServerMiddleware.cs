@@ -29,6 +29,7 @@ namespace WebSocketServer.Middleware
                         if(result.MessageType == WebSocketMessageType.Text) //chekcs if types are correct
                         {
                             Console.WriteLine("Message Recieved");
+                            Console.WriteLine($"Message: {Encoding.UTF8.GetString(Buffer, 0, result.Count)}");  //decoding a buffer using UTF8
                             return;
                         }
                         else if(result.MessageType == WebSocketMessageType.Close) //closes if requested

@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using  System.Net.WebSockets;
+using System.Net.WebSockets;
 using System.Threading;
+using WebSocketServer.Middleware;
 
 
 namespace WebSocketServer
@@ -25,6 +26,7 @@ namespace WebSocketServer
         {
             app.UseWebSockets(); //middleware, part of pipeline request
 
+            app.UseWebSocketServer();
             
 
             app.Run(async context =>{ //3rd request delegate
