@@ -26,6 +26,8 @@ namespace WebSocketServer.Middleware
                     Console.WriteLine("WebSocket Connected"); 
 
                     string ConnID = _manager.AddSocket(webSocket);
+                    await SendConnIDAsync(webSocket, ConnID);
+                    
                     await ReceiveMessage(webSocket, async(result, Buffer) => //message receiver
                     {
                         if(result.MessageType == WebSocketMessageType.Text) //chekcs if types are correct
@@ -46,6 +48,12 @@ namespace WebSocketServer.Middleware
                     Console.WriteLine("Hello from the 2rd request delegate."); //runs when i go to http://localhost5000
                     await _next(context); //creates next request delegate in the pipeline
                 }
+         }
+
+         private async Task SendConnIDAsync(WebSocket socket, string connID) //sends connection id back to client
+         {
+             var buffer = Encoding.UTF8.GetBytes("ConnID: "+connID); //encodes connectionID
+             await socket.SendAsync(buffer, WebSocketMessageType.Text,true, CancellationToken.None);
          }
          private async Task ReceiveMessage(WebSocket socket, Action<WebSocketReceiveResult, byte[]> handleMessage)
         {
