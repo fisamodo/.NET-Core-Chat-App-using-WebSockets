@@ -1,6 +1,8 @@
 # .NET-Core-Chat-App-using-WebSockets
 Chat app made with C#, .NET Core and WebSockets.
 
+You can see visual representation of the code in Pictures file uploaded with my code.
+
 Tools i used for client app:
 -HTML, JS
 Tools i used for server app:
