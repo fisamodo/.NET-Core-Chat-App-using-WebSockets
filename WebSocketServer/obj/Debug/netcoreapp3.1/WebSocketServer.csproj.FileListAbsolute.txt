@@ -16,3 +16,5 @@ C:\Users\Korisnik\Desktop\dotnetPractice\ChatApp\websocketserver\bin\Debug\netco
 C:\Users\Korisnik\Desktop\dotnetPractice\ChatApp\websocketserver\obj\Debug\netcoreapp3.1\WebSocketServer.RazorTargetAssemblyInfo.cache
 C:\Users\Korisnik\Desktop\dotnetPractice\ChatApp\websocketserver\obj\Debug\netcoreapp3.1\WebSocketServer.dll
 C:\Users\Korisnik\Desktop\dotnetPractice\ChatApp\websocketserver\obj\Debug\netcoreapp3.1\WebSocketServer.pdb
+C:\Users\Korisnik\Desktop\dotnetPractice\ChatApp\WebSocketServer\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Korisnik\Desktop\dotnetPractice\ChatApp\WebSocketServer\obj\Debug\netcoreapp3.1\WebSocketServer.csproj.CopyComplete

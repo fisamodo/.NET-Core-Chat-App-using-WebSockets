@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\websocketserver\\WebSocketServer.csproj": {}
+    "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\WebSocketServer\\WebSocketServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\websocketserver\\WebSocketServer.csproj": {
+    "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\WebSocketServer\\WebSocketServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\websocketserver\\WebSocketServer.csproj",
+        "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\WebSocketServer\\WebSocketServer.csproj",
         "projectName": "WebSocketServer",
-        "projectPath": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\websocketserver\\WebSocketServer.csproj",
+        "projectPath": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\WebSocketServer\\WebSocketServer.csproj",
         "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\websocketserver\\obj\\",
+        "outputPath": "C:\\Users\\Korisnik\\Desktop\\dotnetPractice\\ChatApp\\WebSocketServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -40,6 +40,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

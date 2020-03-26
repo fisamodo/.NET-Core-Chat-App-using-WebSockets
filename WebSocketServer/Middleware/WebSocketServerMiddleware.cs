@@ -4,7 +4,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-
+using System.Linq;
+using Newtonsoft.Json;
 
 namespace WebSocketServer.Middleware
 {
@@ -27,21 +28,28 @@ namespace WebSocketServer.Middleware
 
                     string ConnID = _manager.AddSocket(webSocket);
                     await SendConnIDAsync(webSocket, ConnID);
-                    
+
                     await ReceiveMessage(webSocket, async(result, Buffer) => //message receiver
                     {
+
                         if(result.MessageType == WebSocketMessageType.Text) //chekcs if types are correct
                         {
                             Console.WriteLine("Message Recieved");
                             Console.WriteLine($"Message: {Encoding.UTF8.GetString(Buffer, 0, result.Count)}");  //decoding a buffer using UTF8
+                            await RounteJSONMessageAsync(Encoding.UTF8.GetString(Buffer, 0, result.Count));
                             return;
                         }
                         else if(result.MessageType == WebSocketMessageType.Close) //closes if requested
                         {
+                            string id = _manager.GetAllSockets().FirstOrDefault(s => s.Value == 
+                            webSocket).Key;
+                            
                             Console.WriteLine("Recieved Close message");
+                            _manager.GetAllSockets().TryRemove(id, out WebSocket sock); //takes id, finds it, and passes out a socket that we can close
+                            await sock.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
                             return;
                         }
-                    }   );
+                    });
                 }
                 else
                 {
@@ -67,7 +75,42 @@ namespace WebSocketServer.Middleware
                 handleMessage(result, buffer);
             }
         }
+        
+        public async Task RounteJSONMessageAsync(string message)
+        {
+            var routeOb = JsonConvert.DeserializeObject<dynamic>(message);
 
+            if(Guid.TryParse(routeOb.To.ToString(), out Guid guidOutput))
+            {
+                Console.WriteLine("Targeted");
+                var sock = _manager.GetAllSockets().FirstOrDefault(s=>s.Key==routeOb.To.ToString());
+                if(sock.Value!=null)
+                {
+                    if(sock.Value.State == WebSocketState.Open)
+                    {
+                        await sock.Value.SendAsync(Encoding.UTF8.GetBytes(routeOb.Message.ToString()),
+                        WebSocketMessageType.Text, true, CancellationToken.None);
+                    }
+                    
+                }
+                else
+                    {
+                        Console.WriteLine("Invladit recipient");
+                    }
+            }
+            else
+            {
+                Console.WriteLine("Broadcast");                
+                foreach(var sock in _manager.GetAllSockets())
+                {
+                    if(sock.Value.State == WebSocketState.Open)
+                    {
+                        await sock.Value.SendAsync(Encoding.UTF8.GetBytes(routeOb.Message.ToString()),
+                        WebSocketMessageType.Text, true, CancellationToken.None);
+                    }
+                }
+            }
+        }
 
     }
 }
